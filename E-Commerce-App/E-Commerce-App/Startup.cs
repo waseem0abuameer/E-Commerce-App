@@ -1,4 +1,6 @@
+using E_Commerce_App.Controllers;
 using E_Commerce_App.Data;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +29,8 @@ namespace E_Commerce_App
         {
             services.AddControllers();
             services.AddMvc();
+
+
             services.AddDbContext<EcommercelDbContext>(options =>
             {
                 // Our DATABASE_URL from js days
