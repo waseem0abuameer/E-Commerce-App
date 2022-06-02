@@ -137,7 +137,7 @@ namespace E_Commerce_App.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             var categorie = await _context.Categories.FindAsync(id);
             _context.Categories.Remove(categorie);

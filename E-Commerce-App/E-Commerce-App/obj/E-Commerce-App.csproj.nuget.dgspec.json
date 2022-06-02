@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {}
+    "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {}
   },
   "projects": {
-    "I:\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {
+    "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
+        "projectUniqueName": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
         "projectName": "E-Commerce-App",
-        "projectPath": "I:\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
+        "projectPath": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
         "packagesPath": "C:\\Users\\96278\\.nuget\\packages\\",
-        "outputPath": "I:\\E-Commerce-App\\E-Commerce-App\\obj\\",
+        "outputPath": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\96278\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "ImageResizer": {
+              "target": "Package",
+              "version": "[4.2.8, )"
+            },
+            "Microsoft.AspNetCore.Mvc.TagHelpers": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -50,9 +58,21 @@
               "target": "Package",
               "version": "[5.0.17, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[5.1.3, )"
             }
           },
           "imports": [
