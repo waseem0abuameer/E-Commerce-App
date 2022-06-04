@@ -21,7 +21,7 @@ namespace E_Commerce_App.Migrations
 
             modelBuilder.Entity("E_Commerce_App.Models.Categorie", b =>
                 {
-                    b.Property<int>("CategorieId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -32,32 +32,32 @@ namespace E_Commerce_App.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CategorieId");
+                    b.HasKey("Id");
 
                     b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
-                            CategorieId = 1,
+                            Id = 1,
                             CategoryDescription = "Add a touch of natural beauty to your place! Through a variety of indoor ornamental plants equipped in containers and basins, in addition to large and small flowering indoor plants.",
                             CategoryName = "INDOOR PLANTS "
                         },
                         new
                         {
-                            CategorieId = 2,
+                            Id = 2,
                             CategoryDescription = "A variety of outdoor plants that can be used in open spaces such as the garden of the house or around the walls and entrances of the house",
                             CategoryName = "OUTDOOR PLANTS "
                         },
                         new
                         {
-                            CategorieId = 3,
+                            Id = 3,
                             CategoryDescription = "Bedroom plants can do more than just make your shelves look brighter. They can also boost your mood, enhance your creativity, reduce your stress levels, increase your productivity, naturally filter air pollutants, and much more. ",
                             CategoryName = "Bedroom Plants "
                         },
                         new
                         {
-                            CategorieId = 4,
+                            Id = 4,
                             CategoryDescription = "Null",
                             CategoryName = "Jungle Plants "
                         });

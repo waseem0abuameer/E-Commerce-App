@@ -1,6 +1,7 @@
 using E_Commerce_App.Controllers;
 using E_Commerce_App.Data;
-
+using E_Commerce_App.Models.Interface;
+using E_Commerce_App.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,8 @@ namespace E_Commerce_App
         {
             services.AddControllers();
             services.AddMvc();
+            services.AddTransient<ICategories, CategoriesService>();
+            services.AddTransient<IProducts, ProductsService>();
 
 
             services.AddDbContext<EcommercelDbContext>(options =>

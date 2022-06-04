@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {}
+    "C:\\Users\\Tomcat00\\Dotnet-401\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {}
   },
   "projects": {
-    "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {
+    "C:\\Users\\Tomcat00\\Dotnet-401\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
+        "projectUniqueName": "C:\\Users\\Tomcat00\\Dotnet-401\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
         "projectName": "E-Commerce-App",
-        "projectPath": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
-        "packagesPath": "C:\\Users\\96278\\.nuget\\packages\\",
-        "outputPath": "I:\\2030\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\obj\\",
+        "projectPath": "C:\\Users\\Tomcat00\\Dotnet-401\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App.csproj",
+        "packagesPath": "C:\\Users\\Tomcat00\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tomcat00\\Dotnet-401\\E-Commerce-App\\E-Commerce-App\\E-Commerce-App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\96278\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tomcat00\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
