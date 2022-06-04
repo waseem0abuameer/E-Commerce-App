@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Commerce_App.Data;
 using E_Commerce_App.Models;
+using E_Commerce_App.Models.Interface;
 
 namespace E_Commerce_App.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly EcommercelDbContext _context;
+        private readonly IProducts _product;
 
-        public ProductsController(EcommercelDbContext context)
+        public ProductsController(IProducts product)
         {
-            _context = context;
+            _product = product;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            return View(await _product.Index());
         }
 
         // GET: Products/Details/5
@@ -33,8 +34,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _product.Details(id);
             if (product == null)
             {
                 return NotFound();
@@ -58,8 +58,7 @@ namespace E_Commerce_App.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                await _product.Create(product,this.ModelState);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -73,7 +72,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _product.Edit(id);
             if (product == null)
             {
                 return NotFound();
@@ -97,8 +96,7 @@ namespace E_Commerce_App.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await _product.Edit(id, product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +122,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _product.Delete(id);
             if (product == null)
             {
                 return NotFound();
@@ -139,15 +136,13 @@ namespace E_Commerce_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
+            await _product.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.Id == id);
+            return _product.ProductExists(id);
         }
     }
 }

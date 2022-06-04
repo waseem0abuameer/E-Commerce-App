@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Commerce_App.Data;
 using E_Commerce_App.Models;
+using E_Commerce_App.Models.Interface;
 
 namespace E_Commerce_App.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly EcommercelDbContext _context;
+        private readonly ICategories _categories;
 
-        public CategoriesController(EcommercelDbContext context)
+        public CategoriesController(ICategories categories)
         {
-            _context = context;
+            _categories = categories;
         }
 
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _categories.Index());
         }
 
         // GET: Categories/Details/5
@@ -33,8 +34,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var categorie = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategorieId == id);
+            var categorie = await _categories.Details(id);
             if (categorie == null)
             {
                 return NotFound();
@@ -58,8 +58,7 @@ namespace E_Commerce_App.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categorie);
-                await _context.SaveChangesAsync();
+                categorie = await _categories.Create(categorie);
                 return RedirectToAction(nameof(Index));
             }
             return View(categorie);
@@ -73,7 +72,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var categorie = await _context.Categories.FindAsync(id);
+            var categorie = await _categories.Edit(id);
             if (categorie == null)
             {
                 return NotFound();
@@ -86,9 +85,9 @@ namespace E_Commerce_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategorieId,CategoryName,CategoryDescription")] Categorie categorie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryName,CategoryDescription")] Categorie categorie)
         {
-            if (id != categorie.CategorieId)
+            if (id != categorie.Id)
             {
                 return NotFound();
             }
@@ -97,12 +96,11 @@ namespace E_Commerce_App.Controllers
             {
                 try
                 {
-                    _context.Update(categorie);
-                    await _context.SaveChangesAsync();
+                    await _categories.Edit(id, categorie);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategorieExists(categorie.CategorieId))
+                    if (!CategorieExists(categorie.Id))
                     {
                         return NotFound();
                     }
@@ -124,8 +122,7 @@ namespace E_Commerce_App.Controllers
                 return NotFound();
             }
 
-            var categorie = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategorieId == id);
+            var categorie = await _categories.Delete(id);
             if (categorie == null)
             {
                 return NotFound();
@@ -137,17 +134,15 @@ namespace E_Commerce_App.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categorie = await _context.Categories.FindAsync(id);
-            _context.Categories.Remove(categorie);
-            await _context.SaveChangesAsync();
+            await _categories.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategorieExists(int id)
         {
-            return _context.Categories.Any(e => e.CategorieId == id);
+            return  _categories.CategorieExists(id);
         }
     }
 }
