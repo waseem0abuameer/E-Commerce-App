@@ -1,10 +1,12 @@
-﻿using E_Commerce_App.Models;
+﻿using E_Commerce_App.Auth.Models;
+using E_Commerce_App.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce_App.Data
 {
 
-    public class EcommercelDbContext : DbContext
+    public class EcommercelDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public DbSet<Product> Products { get; set; }
@@ -16,6 +18,7 @@ namespace E_Commerce_App.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Categorie>().HasData(
               new Categorie { Id = 1, CategoryName = "INDOOR PLANTS ", CategoryDescription= "Add a touch of natural beauty to your place! Through a variety of indoor ornamental plants equipped in containers and basins, in addition to large and small flowering indoor plants." },
               new Categorie { Id = 2, CategoryName = "OUTDOOR PLANTS ", CategoryDescription = "A variety of outdoor plants that can be used in open spaces such as the garden of the house or around the walls and entrances of the house" },
