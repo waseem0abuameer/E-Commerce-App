@@ -1,3 +1,6 @@
+using E_Commerce_App.Auth;
+using E_Commerce_App.Auth.Interfaces;
+using E_Commerce_App.Auth.Models;
 using E_Commerce_App.Controllers;
 using E_Commerce_App.Data;
 using E_Commerce_App.Models.Interface;
@@ -5,6 +8,7 @@ using E_Commerce_App.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +36,13 @@ namespace E_Commerce_App
             services.AddMvc();
             services.AddTransient<ICategories, CategoriesService>();
             services.AddTransient<IProducts, ProductsService>();
-
+            services.AddTransient<IUserService, UserService>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<EcommercelDbContext>();
+            services.AddAuthentication();
+            services.AddAuthorization();
 
             services.AddDbContext<EcommercelDbContext>(options =>
             {
@@ -51,6 +61,8 @@ namespace E_Commerce_App
             }
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

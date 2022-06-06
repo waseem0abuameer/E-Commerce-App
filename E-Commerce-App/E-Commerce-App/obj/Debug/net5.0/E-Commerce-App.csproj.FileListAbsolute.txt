@@ -467,3 +467,10 @@ C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\De
 C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Debug\net5.0\E-Commerce-App.pdb
 C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Debug\net5.0\E-Commerce-App.genruntimeconfig.cache
 C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Debug\net5.0\ref\E-Commerce-App.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Debug\net5.0\Razor\Views\Auth\Index.cshtml.g.cs
+C:\Users\Tomcat00\Dotnet-401\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Debug\net5.0\Razor\Views\Auth\SignUp.cshtml.g.cs
