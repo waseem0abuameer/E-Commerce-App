@@ -32,6 +32,7 @@ namespace E_Commerce_App
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
             services.AddMvc();
             services.AddTransient<ICategories, CategoriesService>();
@@ -43,8 +44,15 @@ namespace E_Commerce_App
             }).AddEntityFrameworkStores<EcommercelDbContext>();
             services.AddAuthentication();
             services.AddAuthorization();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Administrator", policy => policy.RequireClaim("permissions", "Administrator"));
+                options.AddPolicy("Editor", policy => policy.RequireClaim("permissions", "Editor"));
+            });
 
-            services.AddDbContext<EcommercelDbContext>(options =>
+      
+
+        services.AddDbContext<EcommercelDbContext>(options =>
             {
                 // Our DATABASE_URL from js days
                 string connectionString = Configuration.GetConnectionString("DefaultConnection");

@@ -28,6 +28,9 @@ namespace E_Commerce_App.Auth
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
+            // Administrator
+            // Editor
+            await _userManager.AddToRoleAsync(user, "Administrator");
 
             if (result.Succeeded)
             {
@@ -58,20 +61,20 @@ namespace E_Commerce_App.Auth
         {
 
             var result = await _signInManager.PasswordSignInAsync(username, password, true, false);
-
-
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(username);
+
                 return new UserDto
                 {
-                    Username = user.UserName
+                    Id = user.Id,
+                    Username = user.UserName,
+                    Roles = await _userManager.GetRolesAsync(user)
                 };
             }
 
-           
-
             return null;
+
         }
 
         public async Task<UserDto> GetUser(ClaimsPrincipal principal)
