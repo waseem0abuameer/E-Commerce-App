@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using E_Commerce_App.Data;
 using E_Commerce_App.Models;
 using E_Commerce_App.Models.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_Commerce_App.Controllers
 {
@@ -43,6 +44,8 @@ namespace E_Commerce_App.Controllers
             return View(product);
         }
 
+        [Authorize(Policy = "Administrator")]
+
         // GET: Products/Create
         public IActionResult Create()
         {
@@ -65,6 +68,8 @@ namespace E_Commerce_App.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Policy = "Editor")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -113,6 +118,7 @@ namespace E_Commerce_App.Controllers
             }
             return View(product);
         }
+        [Authorize(Policy = "Administrator")]
 
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)

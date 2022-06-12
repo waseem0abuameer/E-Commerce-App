@@ -1,8 +1,12 @@
-﻿namespace E_Commerce_App.Auth.Models.DTO
+﻿using System.Collections.Generic;
+
+namespace E_Commerce_App.Auth.Models.DTO
 {
     public class UserDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Username { get; set; }
+        public IList<string> Roles { get; set; }
+
     }
 }
