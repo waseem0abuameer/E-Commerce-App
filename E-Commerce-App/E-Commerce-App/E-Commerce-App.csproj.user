@@ -16,7 +16,9 @@
     <WebStackScaffolding_EnablerDialogWidth>650</WebStackScaffolding_EnablerDialogWidth>
     <WebStackScaffolding_ViewDialogWidth>650</WebStackScaffolding_ViewDialogWidth>
     <ActiveDebugProfile>E_Commerce_App</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\Properties\PublishProfiles\plantShop - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\Properties\PublishProfiles\E-Commerce-App99 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <RazorPage_SelectedScaffolderID>RazorPageScaffolder</RazorPage_SelectedScaffolderID>
+    <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

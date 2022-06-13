@@ -17,7 +17,7 @@ namespace E_Commerce_App.Models.Services
             _context = context;
         }
 
-        public async Task<Product> Create(Product product, ModelStateDictionary modelState)
+        public async Task<Product> Create(Product product)
         {
             if (_context.Categories.Any(x => x.Id == product.CategoryId))
             {
@@ -25,7 +25,6 @@ namespace E_Commerce_App.Models.Services
                 await _context.SaveChangesAsync();
 
             }
-            else modelState.AddModelError(string.Empty,"Categore does not exist");
 
             return product;
         }

@@ -166,3 +166,14 @@ I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\ref
 I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\E-Commerce-App.pdb
 I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\E-Commerce-App.genruntimeconfig.cache
 I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\ref\E-Commerce-App.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\Razor\Views\Home\Aboutus.cshtml.g.cs
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Azure.Core.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Azure.Storage.Blobs.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Azure.Storage.Common.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\System.IO.Hashing.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\System.Memory.Data.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Microsoft.WindowsAzure.Storage.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Microsoft.Azure.Management.Storage.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Microsoft.Rest.ClientRuntime.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\bin\Release\net5.0\Microsoft.Rest.ClientRuntime.Azure.dll
+I:\ECOMMERCE\E-Commerce-App\E-Commerce-App\E-Commerce-App\obj\Release\net5.0\Razor\Pages\CartRaz.cshtml.g.cs

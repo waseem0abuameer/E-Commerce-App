@@ -9,16 +9,24 @@ using E_Commerce_App.Data;
 using E_Commerce_App.Models;
 using E_Commerce_App.Models.Interface;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Azure.Storage.Blobs;
+using Microsoft.Extensions.Configuration;
+using Azure.Storage.Blobs.Models;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Management.Storage.Models;
+using E_Commerce_App.Models.ViweModel;
 
 namespace E_Commerce_App.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProducts _product;
-
-        public ProductsController(IProducts product)
+        private readonly IConfiguration _Configuration;
+        public ProductsController(IProducts product, IConfiguration config)
         {
             _product = product;
+            _Configuration = config;
         }
 
         // GET: Products
@@ -56,15 +64,31 @@ namespace E_Commerce_App.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,price,Description,stock,CategoryId")] Product product)
+        public async Task<IActionResult> Create( Product product, IFormFile file)
         {
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzWA"), "dbplant");
+
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+            BlobUploadOptions options = new BlobUploadOptions()
+            {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+
+            product.ProductImage = blob.Uri.ToString();
             if (ModelState.IsValid)
             {
-                await _product.Create(product,this.ModelState);
-                return RedirectToAction(nameof(Index));
+                await _product.Create(product);
+                return RedirectToAction("Index");
             }
+            stream.Close();
             return View(product);
+            
         }
 
         // GET: Products/Edit/5
@@ -144,6 +168,19 @@ namespace E_Commerce_App.Controllers
         {
             await _product.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> AddProductToCart(int id)
+        {
+
+
+            var product = await _product.Details(id);
+
+
+            Cartpro.Products.Add(product);
+            string urlAnterior = Request.Headers["Referer"].ToString();
+            return Redirect(urlAnterior);
+
+
         }
 
         private bool ProductExists(int id)

@@ -16,5 +16,10 @@ namespace E_Commerce_App.Controllers
        
             return View();
         }
+        public IActionResult Aboutus()
+        {
+
+            return View();
+        }
     }
 }

@@ -147,6 +147,9 @@ namespace E_Commerce_App.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("price")
                         .HasColumnType("int");
 
