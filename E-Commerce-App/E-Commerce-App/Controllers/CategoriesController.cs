@@ -46,7 +46,6 @@ namespace E_Commerce_App.Controllers
 
         // GET: Categories/Create
         [Authorize(Policy = "Administrator")]
-
         public IActionResult Create()
         {
             return View();

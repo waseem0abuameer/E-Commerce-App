@@ -8,7 +8,7 @@ namespace E_Commerce_App.Models.Interface
     {
         public Task<List<Product>> Index();
         public Task<Product> Details(int? id);
-        public Task<Product> Create(Product product, ModelStateDictionary modelState);
+        public Task<Product> Create(Product product);
         public Task<Product> Edit(int? id);
         public  Task<Product> Edit(int id,Product product);
         public Task<Product> Delete(int? id);

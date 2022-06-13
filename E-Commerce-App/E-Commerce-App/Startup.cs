@@ -35,6 +35,7 @@ namespace E_Commerce_App
 
             services.AddControllers();
             services.AddMvc();
+            
             services.AddTransient<ICategories, CategoriesService>();
             services.AddTransient<IProducts, ProductsService>();
             services.AddTransient<IUserService, UserService>();
@@ -50,9 +51,9 @@ namespace E_Commerce_App
                 options.AddPolicy("Editor", policy => policy.RequireClaim("permissions", "Editor"));
             });
 
-      
+         
 
-        services.AddDbContext<EcommercelDbContext>(options =>
+            services.AddDbContext<EcommercelDbContext>(options =>
             {
                 // Our DATABASE_URL from js days
                 string connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -71,11 +72,14 @@ namespace E_Commerce_App
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
+
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
+            app.UseStaticFiles();
+            
         }
     }
 }
